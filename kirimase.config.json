@@ -1,0 +1,14 @@
+{
+  "hasSrc": true,
+  "packages": [
+    "prisma",
+    "next-auth",
+    "trpc",
+    "shadcn-ui"
+  ],
+  "preferredPackageManager": "pnpm",
+  "rootPath": "src/",
+  "orm": "prisma",
+  "driver": "pg",
+  "auth": "next-auth"
+}
