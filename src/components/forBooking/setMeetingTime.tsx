@@ -65,6 +65,7 @@ console.log(workinghours);
       Number(length),
       //@ts-expect-error
       reservations,
+      // eslint-disable-next-line react-hooks/exhaustive-deps
     ),[reservations]
   );
   const [activeOption, setActiveOption] = useState("");
