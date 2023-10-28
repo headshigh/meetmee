@@ -3,8 +3,8 @@ function classNames(...classes: Array<string | undefined | boolean>) {
 }
 function Spinner({ className }: { className?: string }) {
   return (
-    <div>
-      <div role="status">
+    <div className="text-white">
+      <div role="status ">
         <svg
           aria-hidden="true"
           className={classNames(

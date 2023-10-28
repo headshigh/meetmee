@@ -20,12 +20,11 @@ export interface singleEventWithDetails extends singleEvent {
   startTime: string;
   endTime: string;
   dateObject?: Date;
-  meetingDate: string;
+  meetingDate: string ;
 }
 function FurtherBookingDetails(data: singleEventWithDetails) {
   const router = useRouter();
   const {id}=useParams();
-  console.log(id,"id");
   const [name, setName] = useState("");
   const [bookingConfirmed, setBookingConfirmed] = useState(false);
   const [email, setEmail] = useState("");
@@ -120,7 +119,7 @@ function FurtherBookingDetails(data: singleEventWithDetails) {
                   } else {
                     mutate({
                       userId: "clmq8xng60000uvd08fuz8uq1",
-                      eventTypeId: 1,
+                      eventTypeId:Number(id),
                       participants: ["clmq8xng60000uvd08fuz8uq1"],
                       date: data.meetingDate,
                       hostEmail: email,

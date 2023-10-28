@@ -5,21 +5,22 @@ import SingleEvent from "../../components/SingleEvent";
 import CreateEventModel from "../../components/CreateEventModel";
 import { useState } from "react";
 import Image from "next/image";
+import Spinner from "@/components/Spinner";
 import plus from "../../../public/icons8-plus-24.png";
 import { useSession } from "next-auth/react";
 import { redirect } from "next/navigation";
 function Index() {
     const {data:sessionData}=useSession();
     // if(!sessionData) redirect('/login');
-  const { data } = trpc.eventType.getUserEventTypes.useQuery({
+  const { data,isLoading } = trpc.eventType.getUserEventTypes.useQuery({
     userId: "clmq8xng60000uvd08fuz8uq1",
   });
   console.log(data);
   const [openWindow, setOpenWindow] = useState<boolean>(false);
-
+  if(isLoading) return <div className="text-center w-full font-bold text-3xl  animate-pulse">Loading...</div>
   //todo get user from use session after next auth setup
   return (
-    <div className="min-h-screen bg-black px-3 pt-8 md:px-10">
+    <div className="min-h-screen w-full bg-black px-3 pt-8 md:px-10">
       <div className="topmost mb-4 flex items-center justify-between">
         <div className="text">
           <h1 className="mb-1 text-3xl text-white">Event Types</h1>
@@ -27,7 +28,7 @@ function Index() {
             Create events to share for people to book on your calendar.
           </p>
         </div>
-        <div
+        <div 
           onClick={() => {
             setOpenWindow(true);
             // mutate({

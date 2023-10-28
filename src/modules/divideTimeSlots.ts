@@ -14,7 +14,9 @@ function divideTimeSlots(
     let slotAvailable = true;
 
     for (const reservation of reservations) {
+      //@ts-expect-error
       const reservationStart = new Date(0, 0, 0, ...reservation.startTime.split(":"));
+      //@ts-expect-error
       const reservationEnd = new Date(0, 0, 0, ...reservation.endTime.split(":"));
 
       // Check if the current slot overlaps with any reservation

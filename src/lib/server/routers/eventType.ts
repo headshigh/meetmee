@@ -48,12 +48,14 @@ getPubllicPageEventtypes: publicProcedure
           id: input.id,
         },
         include: {
-          user: {
-            select: {
-              id: true,
-              name: true,
-            },
-          },
+          user:{
+            select:{
+              name:true,
+              id:true,
+              timetable:true,
+                username:true,  
+            }
+          }
         },
       });
     }),

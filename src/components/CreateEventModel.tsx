@@ -96,14 +96,15 @@ export default function CreateEventModel({
                   </div>
                 </div>
                 <div className=" mr-20  flex  gap-3 pt-4 sm:justify-end">
-                  <div
-                    className="cursor-pointer rounded bg-background px-2 py-1 text-white"
+                  <Button
+                  variant={"outline"}
+                    className="cursor-pointer rounded  px-2 py-1 text-white"
                     onClick={handleClose}
                   >
                     Close
-                  </div>
+                  </Button>
                   <Button
-                    className=" "
+                    className=" text-white"
                     variant={"outline"}
                     onClick={() => {
                       if (title == "") {

@@ -22,7 +22,7 @@ function Index() {
         toast.error("Unable to cancel the booking");
       },
     });
-  if (isLoading) return <h1>Loading</h1>;
+  if (isLoading) return <h1 className="text-center animate-pulse">Loading...</h1>;
   if (!data) return <></>;
   return (
     <div className=" flex min-h-screen flex-col items-center gap-1 bg-background">

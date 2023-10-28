@@ -3,7 +3,7 @@ import Image from "next/image";
 import { trpc } from "@/lib/trpc/client";
 import React from "react";
 import { useRouter } from "next/router";
-import pp from "../../../public/DALL·E 2023-05-31 22.10.16 - social media base profile pic for male .png";
+import pp from "../../../../public/pp.png";
 import ProfileSingleEvent from "../../../components/ProfileSingleEvent";
 function Profile() {
   const router = useRouter();

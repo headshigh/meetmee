@@ -42,25 +42,33 @@ function SetMeetingTime({
     "5":"Friday",
     "6":"Saturday",
   }
-
-  console.log(reservations);
+  const dayMapping2={
+    "Sunday":"0",
+    "Monday":"1",
+    "Tuesday":"2",
+    "Wenesday":"3",
+    "Thursday":"4",
+    "Friday":"5",
+    "Saturday":"6"
+  }
 console.log(timetable);
-// console.log(dayMapping[day],"daymm")
+//@ts-expect-error
 const weekday=dayMapping[day];
-console.log(weekday)
-const workinghours= timetable[dayMapping[weekday]] ;
+//@ts-expect-error
+const workinghours= timetable[weekday];
 console.log(workinghours);
 // console.log(timetable[dayMapping[0]],"org") 
   const avilabletime: string[] = useMemo(() =>
     divideTimeSlots(
-      workinghours?.split("-")[0] ,
+      workinghours?.split("-")[0],
       workinghours?.split("-")[1],
       Number(length),
+      //@ts-expect-error
       reservations,
     ),[reservations]
   );
   const [activeOption, setActiveOption] = useState("");
-  if (avilabletime.length == 0) return <h1 className="animate-pulse">....</h1>;
+  if (avilabletime.length == 0 || isLoading) return <h1 className="animate-pulse">....</h1>;
   console.log(activeOption);
   return (
     <div className="time flex max-h-[364px] flex-col gap-2 overflow-y-auto border-l border-bordersubtle text-white delay-75 ease-in sm:flex sm:flex-col">
@@ -72,7 +80,7 @@ console.log(workinghours);
                 setStartTime(time);
                 setEndTime(avilabletime[index + 1] || "");
                 setActiveOption(time);
-              }}
+              }}  
               className={classNames(
                 " scrollbar cursor-pointer justify-center rounded   border-black px-12 py-1 text-black hover:border hover:bg-slate-100 md:flex",
                 {
@@ -88,5 +96,4 @@ console.log(workinghours);
     </div>
   );
 }
-
 export default SetMeetingTime;

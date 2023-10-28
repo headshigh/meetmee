@@ -42,7 +42,7 @@ console.log(search.get("hostname"));
             <h1>When</h1>
             <div className="">
               <h1>{`${
-                data.meetingDate.toString().split(" ")[0] || "Mon"
+                data.meetingDate?.toString().split(" ")[0] || "Mon"
                 //@ts-expect-error todo
               } ${data.dateObject.getDate()} ${month(
                 Number(data.dateObject?.getMonth())
@@ -79,11 +79,11 @@ console.log(search.get("hostname"));
         </div>
         <div className="addtocalendar flex items-center gap-14 py-4 text-white">
           <h1>Add to calendar</h1>
-          <Link
+          {data.meetingDate && <Link
             href={`https://calendar.google.com/calendar/u/0/r/eventedit?dates=${convertToISOFormat(
-              data.meetingDate,
+              data?.meetingDate,
               data.startTime
-            )}/${convertToISOFormat(data.meetingDate, data.endTime)}&text=A+${
+            )}/${convertToISOFormat(data?.meetingDate, data.endTime)}&text=A+${
               data.length
             }+min+meeting+between+${search.get("hostName") as string}+And+You`}
             target="_blank"
@@ -91,6 +91,7 @@ console.log(search.get("hostname"));
           >
             <Image src={googleicon} width={30} height={430} alt="cal" />
           </Link>
+          }
         </div>
       </div>
     </div>

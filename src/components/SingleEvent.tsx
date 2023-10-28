@@ -8,12 +8,12 @@ import Link from "next/link";
 import link from ".././../public/icons8-link-24.png";
 import open from "../../public/icons8-open-30.png";
 import { Switch } from "@headlessui/react";
+import { Card } from "./ui/card";
 function SingleEvent({ data }: { data: singleEvent }) {
   const [enabled, setEnabled] = useState(!data.hidden);
   console.log(data.hidden);
   const { mutate: hide } = trpc.eventType.hideEvent.useMutation();
   const { mutate: unhide } = trpc.eventType.unhideEvent.useMutation();
-
   return (
     <div className="md:[w-500px]  w-[320px] rounded-sm border border-slate-400 border-opacity-40 sm:w-[350px] lg:w-[700px]">
       <div className="    bg-black px-3 py-2 text-white hover:bg-slate-950">

@@ -15,7 +15,7 @@ import FurtherBookingDetails from "@/components/forBooking/FurtherBookingDetails
 import { Card } from "@/components/ui/card";
 function BookingLink() {
   const router = useRouter();
-  const [datevalue, setDateValue] = useState<string>();
+  const [datevalue, setDateValue] = useState<string | undefined>();
   const [startTime, setStartTime] = useState("");
   const [endTime, setEndTime] = useState("");
   console.log(datevalue);
@@ -42,7 +42,7 @@ function BookingLink() {
   if (!data) return <></>;
   if (isLoading) return <h1>Loading...</h1>;
   return (
-    <div className="flex h-[364px] min-h-screen items-center justify-center ">
+    <div className="flex h-[364px] w-full min-h-screen items-center justify-center ">
       {!startTime && !endTime ? (
         <Card className="model text-brown-200  border-border w-[750px] rounded border  bg-white text-black px-4 py-7">
           <div className="info  flex  flex-col   sm:flex-row ">
@@ -84,14 +84,14 @@ function BookingLink() {
         </Card>
       ) : (
         <FurtherBookingDetails
-          {...data}
-          startTime={startTime}
-          endTime={endTime}
+        {...data}
+        startTime={startTime}
+        endTime={endTime}
+        //@ts-expect-error
           meetingDate={datevalue}
         />
       )}
     </div>
   );
 }
-
 export default BookingLink;

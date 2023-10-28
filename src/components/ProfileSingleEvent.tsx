@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import type { singleEvent } from "../interfaces/singleEvent";
 import { api } from "@/lib/trpc/api";
 import Image from "next/image";
-import clock from ".././../public/png-transparent-clock-computer-icons-clock-cdr-text-time-thumbnail.png";
+import clock from "../../public/clock.png";
 import toast from "react-hot-toast";
 import Link from "next/link";
 import link from ".././../public/icons8-link-24.png";
