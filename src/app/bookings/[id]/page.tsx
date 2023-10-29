@@ -87,7 +87,6 @@ function BookingLink() {
         {...data}
         startTime={startTime}
         endTime={endTime}
-        //@ts-expect-error
           meetingDate={datevalue}
         />
       )}
