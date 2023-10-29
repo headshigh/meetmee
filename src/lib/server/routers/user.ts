@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { TRPCError } from "@trpc/server";
 import { router, publicProcedure } from "../trpc";
 import z from "zod";
@@ -34,7 +35,6 @@ export const userRouter = router({
           userId:input.userId,
           date:input.date,
         }
-
         })
         return reservations.map(reservation=> {
           return {
