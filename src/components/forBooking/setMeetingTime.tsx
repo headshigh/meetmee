@@ -52,7 +52,6 @@ function SetMeetingTime({
     "Saturday":"6"
   }
 console.log(timetable);
-//@ts-expect-error
 const weekday=dayMapping[day];
 const workinghours= timetable[weekday];
 console.log(workinghours);
